@@ -6,7 +6,10 @@
   "author": "Ohad <ohad@salaryo.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon 'src/server.ts' --exec 'ts-node' src/server.ts\n"
+    "start": "node 'dist/server.js'",
+    "build": "tsc -p . && ncp src/schema dist/schema",
+    "start:dev": "yarn build:dev",
+    "build:dev": "nodemon 'src/server.ts' --exec 'ts-node' src/server.ts -e ts,graphql"
   },
   "dependencies": {
     "apollo-server-express": "^2.25.2",
