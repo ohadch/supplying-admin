@@ -7,7 +7,7 @@ const PORT = 8000
 const GRAPHQL_ENDPOINT = "/graphql"
 
 const app = express();
-const server = new ApolloServer({
+const index = new ApolloServer({
     schema,
     playground: true
 })
@@ -17,6 +17,6 @@ app.get("/", (req, res) => {
     res.send("hello world")
 })
 
-server.applyMiddleware({app, path: GRAPHQL_ENDPOINT})
+index.applyMiddleware({app, path: GRAPHQL_ENDPOINT})
 
 app.listen({port: PORT}, () => console.log(`🚀 Apollo server is listening on http://localhost:${PORT}${GRAPHQL_ENDPOINT}`))
