@@ -1,12 +1,7 @@
-import 'graphql-import-node';
-import {GraphQLSchema} from "graphql";
-import { makeExecutableSchema, ITypeDefinitions } from "graphql-tools";
-import * as typeDefs from "./schema/schema.graphql";
-import resolvers from "../resolvers";
+import {buildSchema} from "type-graphql";
+import {TodoResolver} from "../resolvers/todoResolver";
 
-const index: GraphQLSchema = makeExecutableSchema({
-    typeDefs: typeDefs as unknown as ITypeDefinitions,
-    resolvers
+export const getSchema = () => buildSchema({
+    resolvers: [TodoResolver],
+    emitSchemaFile: true
 })
-
-export default index;
