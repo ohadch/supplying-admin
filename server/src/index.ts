@@ -9,6 +9,7 @@ import {HarmonizedSystemCodeResolver} from "./models/HarmonizedSystemCode";
 import {CatalogItemResolver} from "./models/CatalogItem";
 import {BusinessResolver} from "./models/Business";
 import {OfferRoundResolver} from "./models/OfferRound";
+import {OfferResolver} from "./models/Offer";
 
 
 const PORT = 4002
@@ -24,7 +25,8 @@ async function main() {
             HarmonizedSystemCodeResolver,
             CatalogItemResolver,
             BusinessResolver,
-            OfferRoundResolver
+            OfferRoundResolver,
+            OfferResolver
         ]
     })
 

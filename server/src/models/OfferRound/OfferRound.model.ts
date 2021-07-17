@@ -23,7 +23,7 @@ export class OfferRound extends BaseEntity {
     @Column()
     name: string;
 
-    @Field(type => Int)
+    @Field(type => String)
     @Column()
     offerId: string;
 

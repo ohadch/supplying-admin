@@ -1,8 +1,10 @@
-import {BaseEntity, Column, Entity, PrimaryGeneratedColumn} from "typeorm";
-import {Field, ID, ObjectType} from "type-graphql";
-import {BusinessType} from "shared/@types/enums";
+import {BaseEntity, Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn} from "typeorm";
+import {Field, ID, Int, ObjectType} from "type-graphql";
+import {OfferRound} from "../OfferRound";
+import {Business} from "../Business";
 
 export const OFFER_RELATIONS = [
+    "rounds"
 ]
 
 @Entity()
@@ -13,14 +15,30 @@ export class Offer extends BaseEntity {
     @PrimaryGeneratedColumn()
     id: string;
 
+    @Field(type => Date)
+    @Column()
+    createdAt: Date;
+
     @Field(type => String)
     @Column()
     name: string;
 
     @Field(type => String)
-    @Column({
-        type: "enum",
-        enum: BusinessType
-    })
-    type: BusinessType;
+    @Column()
+    originatorId: string;
+
+    @Field(type => String)
+    @Column()
+    offereeId: string;
+
+    @OneToMany(() => OfferRound, offerRound => offerRound.offer)
+    rounds: OfferRound[];
+
+    @ManyToOne(() => Business)
+    @JoinColumn({ name: "originatorId" })
+    originator: Business;
+
+    @ManyToOne(() => Business)
+    @JoinColumn({ name: "offereeId" })
+    offeree: Business;
 }

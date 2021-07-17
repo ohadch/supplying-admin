@@ -18,7 +18,7 @@ export class CatalogItem extends BaseEntity {
     @Column()
     name: string;
 
-    @Field(type => Int)
+    @Field(type => String)
     @Column()
     harmonizedSystemCodeId: string;
 

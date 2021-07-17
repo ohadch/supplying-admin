@@ -23,7 +23,7 @@ export class BusinessResolver {
     @Mutation(() => Business)
     async updateBusiness(@Arg("id") id: number, @Arg("data") data: UpdateBusinessInput) {
         const business = await Business.findOne(id);
-        if (!business) throw new Error("Glider not found");
+        if (!business) throw new Error("Business not found");
         Object.assign(business, data);
         await business.save();
         return Business.findOne(business.id, {
@@ -34,7 +34,7 @@ export class BusinessResolver {
     @Mutation(() => Boolean)
     async deleteBusiness(@Arg("id") id: number) {
         const business = await Business.findOne(id);
-        if (!business) throw new Error("Glider not found!");
+        if (!business) throw new Error("Business not found!");
         await business.remove();
         return true;
     }

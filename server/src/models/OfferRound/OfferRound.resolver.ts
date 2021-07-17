@@ -23,7 +23,7 @@ export class OfferRoundResolver {
     @Mutation(() => OfferRound)
     async updateOfferRound(@Arg("id") id: number, @Arg("data") data: UpdateOfferRoundInput) {
         const offerRound = await OfferRound.findOne(id);
-        if (!offerRound) throw new Error("Glider not found");
+        if (!offerRound) throw new Error("OfferRound not found");
         Object.assign(offerRound, data);
         await offerRound.save();
         return OfferRound.findOne(offerRound.id, {
@@ -34,7 +34,7 @@ export class OfferRoundResolver {
     @Mutation(() => Boolean)
     async deleteOfferRound(@Arg("id") id: number) {
         const offerRound = await OfferRound.findOne(id);
-        if (!offerRound) throw new Error("Glider not found!");
+        if (!offerRound) throw new Error("OfferRound not found!");
         await offerRound.remove();
         return true;
     }

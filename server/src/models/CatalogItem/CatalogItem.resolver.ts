@@ -23,7 +23,7 @@ export class CatalogItemResolver {
     @Mutation(() => CatalogItem)
     async updateCatalogItem(@Arg("id") id: number, @Arg("data") data: UpdateCatalogItemInput) {
         const catalogItem = await CatalogItem.findOne(id);
-        if (!catalogItem) throw new Error("Glider not found");
+        if (!catalogItem) throw new Error("CatalogItem not found");
         Object.assign(catalogItem, data);
         await catalogItem.save();
         return CatalogItem.findOne(catalogItem.id, {
@@ -34,7 +34,7 @@ export class CatalogItemResolver {
     @Mutation(() => Boolean)
     async deleteCatalogItem(@Arg("id") id: number) {
         const catalogItem = await CatalogItem.findOne(id);
-        if (!catalogItem) throw new Error("Glider not found!");
+        if (!catalogItem) throw new Error("CatalogItem not found!");
         await catalogItem.remove();
         return true;
     }

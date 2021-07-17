@@ -1,3 +1,3 @@
-export * from "./Business.inputs"
-export * from "./Business.resolver"
-export * from "./Business.model"
+export * from "./Offer.inputs"
+export * from "./Offer.resolver"
+export * from "./Offer.model"
