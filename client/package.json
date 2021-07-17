@@ -3,20 +3,33 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@material-ui/core": "^4.12.1",
+    "@material-ui/styles": "^4.11.4",
     "apollo-boost": "^0.4.9",
     "graphql": "^15.5.1",
     "react": "^17.0.0",
     "react-apollo": "^3.1.5",
-    "react-dom": "^17.0.0"
+    "react-dom": "^17.0.0",
+    "shared": "../shared/dist",
+    "styled-components": "^5.3.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@storybook/addon-actions": "^6.3.4",
+    "@storybook/addon-docs": "^6.3.4",
+    "@storybook/addon-essentials": "^6.3.4",
+    "@storybook/addon-links": "^6.3.4",
+    "@storybook/react": "^6.3.4",
     "@types/graphql": "^14.5.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@vitejs/plugin-react-refresh": "^1.3.1",
+    "babel-loader": "^8.2.2",
     "typescript": "^4.3.2",
     "vite": "^2.4.0"
   }

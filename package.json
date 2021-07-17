@@ -6,6 +6,8 @@
   "author": "Ohad <ohad@salaryo.com>",
   "license": "MIT",
   "scripts": {
-    "upgrade:shared": "cd shared && yarn tsc && cd ../server && yarn upgrade shared"
+    "upgrade:shared": "cd shared && yarn tsc && cd .. && yarn upgrade:shared:server && yarn upgrade:shared:client",
+    "upgrade:shared:server": "cd server && yarn upgrade shared",
+    "upgrade:shared:client": "cd client && yarn upgrade shared"
   }
 }
