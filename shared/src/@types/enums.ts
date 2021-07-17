@@ -1,4 +1,8 @@
-export enum TestStatus {
-    OK = "ok",
-    NOT_OK = "not ok"
+export enum BusinessType {
+    Supplier = "SUPPLIER",
+    Dealer = "DEALER",
+    Company = "COMPANY",
+    Customer = "CUSTOMER",
+    Warehouse = "WAREHOUSE",
+    Export = "EXPORT",
 }
