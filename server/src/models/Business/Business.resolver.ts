@@ -21,7 +21,7 @@ export class BusinessResolver {
     }
 
     @Mutation(() => Business)
-    async updateBusiness(@Arg("id") id: number, @Arg("data") data: UpdateBusinessInput) {
+    async updateBusiness(@Arg("id") id: string, @Arg("data") data: UpdateBusinessInput) {
         const business = await Business.findOne(id);
         if (!business) throw new Error("Business not found");
         Object.assign(business, data);
@@ -32,7 +32,7 @@ export class BusinessResolver {
     }
 
     @Mutation(() => Boolean)
-    async deleteBusiness(@Arg("id") id: number) {
+    async deleteBusiness(@Arg("id") id: string) {
         const business = await Business.findOne(id);
         if (!business) throw new Error("Business not found!");
         await business.remove();

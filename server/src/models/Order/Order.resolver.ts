@@ -21,7 +21,7 @@ export class OrderResolver {
     }
 
     @Mutation(() => Order)
-    async updateOrder(@Arg("id") id: number, @Arg("data") data: UpdateOrderInput) {
+    async updateOrder(@Arg("id") id: string, @Arg("data") data: UpdateOrderInput) {
         const order = await Order.findOne(id);
         if (!order) throw new Error("Order not found");
         Object.assign(order, data);
@@ -32,7 +32,7 @@ export class OrderResolver {
     }
 
     @Mutation(() => Boolean)
-    async deleteOrder(@Arg("id") id: number) {
+    async deleteOrder(@Arg("id") id: string) {
         const order = await Order.findOne(id);
         if (!order) throw new Error("Order not found!");
         await order.remove();

@@ -21,7 +21,7 @@ export class OfferRoundResolver {
     }
 
     @Mutation(() => OfferRound)
-    async updateOfferRound(@Arg("id") id: number, @Arg("data") data: UpdateOfferRoundInput) {
+    async updateOfferRound(@Arg("id") id: string, @Arg("data") data: UpdateOfferRoundInput) {
         const offerRound = await OfferRound.findOne(id);
         if (!offerRound) throw new Error("OfferRound not found");
         Object.assign(offerRound, data);
@@ -32,7 +32,7 @@ export class OfferRoundResolver {
     }
 
     @Mutation(() => Boolean)
-    async deleteOfferRound(@Arg("id") id: number) {
+    async deleteOfferRound(@Arg("id") id: string) {
         const offerRound = await OfferRound.findOne(id);
         if (!offerRound) throw new Error("OfferRound not found!");
         await offerRound.remove();

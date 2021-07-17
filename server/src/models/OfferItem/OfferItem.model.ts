@@ -3,13 +3,13 @@ import {Field, Float, ID, Int, ObjectType} from "type-graphql";
 import {OfferRound} from "../OfferRound";
 import {Product} from "../Product";
 
-export const CATALOG_ITEM_RELATIONS = [
+export const OFFER_ITEM_RELATIONS = [
     "product"
 ]
 
 @Entity()
 @ObjectType()
-export class CatalogItem extends BaseEntity {
+export class OfferItem extends BaseEntity {
     @Field(
         type => ID)
     @PrimaryGeneratedColumn()
@@ -27,8 +27,17 @@ export class CatalogItem extends BaseEntity {
     @Column()
     productId: string;
 
+    @Field(type => String)
+    @Column()
+    offerRoundId: string;
+
     @ManyToOne(() => OfferRound)
     @JoinColumn({ name: "productId" })
     product: Product;
+
+    @ManyToOne(() => OfferRound)
+    @JoinColumn({ name: "offerRoundId" })
+    offerRound: OfferRound;
+
 
 }

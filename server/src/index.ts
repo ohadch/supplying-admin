@@ -11,7 +11,7 @@ import {BusinessResolver} from "./models/Business";
 import {OfferRoundResolver} from "./models/OfferRound";
 import {OfferResolver} from "./models/Offer";
 import {OrderResolver} from "./models/Order";
-import {CatalogItemResolver} from "./models/CatalogItem";
+import {OfferItemResolver} from "./models/OfferItem";
 
 
 const PORT = 4002
@@ -30,7 +30,7 @@ async function main() {
             OfferRoundResolver,
             OfferResolver,
             OrderResolver,
-            CatalogItemResolver
+            OfferItemResolver
         ]
     })
 

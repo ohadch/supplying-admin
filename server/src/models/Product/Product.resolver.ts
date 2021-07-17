@@ -21,7 +21,7 @@ export class ProductResolver {
     }
 
     @Mutation(() => Product)
-    async updateProduct(@Arg("id") id: number, @Arg("data") data: UpdateProductInput) {
+    async updateProduct(@Arg("id") id: string, @Arg("data") data: UpdateProductInput) {
         const product = await Product.findOne(id);
         if (!product) throw new Error("Product not found");
         Object.assign(product, data);
@@ -32,7 +32,7 @@ export class ProductResolver {
     }
 
     @Mutation(() => Boolean)
-    async deleteProduct(@Arg("id") id: number) {
+    async deleteProduct(@Arg("id") id: string) {
         const product = await Product.findOne(id);
         if (!product) throw new Error("Product not found!");
         await product.remove();

@@ -1,7 +1,8 @@
-import {BaseEntity, Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
+import {BaseEntity, Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn} from "typeorm";
 import {Field, ID, Int, ObjectType} from "type-graphql";
 import {OfferRoundStatus} from "shared/@types/enums";
 import {Offer} from "../Offer/Offer.model";
+import {OfferItem} from "../OfferItem";
 
 export const OFFER_ROUND_RELATIONS = [
     "offer"
@@ -34,6 +35,8 @@ export class OfferRound extends BaseEntity {
     })
     status: OfferRoundStatus;
 
+    @OneToMany(() => OfferItem, offerItem => offerItem.offerRound)
+    items: OfferItem[];
 
     @ManyToOne(() => Offer)
     @JoinColumn({ name: "offerId" })

@@ -21,7 +21,7 @@ export class OfferResolver {
     }
 
     @Mutation(() => Offer)
-    async updateOffer(@Arg("id") id: number, @Arg("data") data: UpdateOfferInput) {
+    async updateOffer(@Arg("id") id: string, @Arg("data") data: UpdateOfferInput) {
         const offer = await Offer.findOne(id);
         if (!offer) throw new Error("Offer not found");
         Object.assign(offer, data);
@@ -32,7 +32,7 @@ export class OfferResolver {
     }
 
     @Mutation(() => Boolean)
-    async deleteOffer(@Arg("id") id: number) {
+    async deleteOffer(@Arg("id") id: string) {
         const offer = await Offer.findOne(id);
         if (!offer) throw new Error("Offer not found");
         await offer.remove();

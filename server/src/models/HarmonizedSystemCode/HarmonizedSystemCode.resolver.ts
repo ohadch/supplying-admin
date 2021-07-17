@@ -17,7 +17,7 @@ export class HarmonizedSystemCodeResolver {
     }
 
     @Mutation(() => HarmonizedSystemCode)
-    async updateHarmonizedSystemCode(@Arg("id") id: number, @Arg("data") data: UpdateHarmonizedSystemCodeInput) {
+    async updateHarmonizedSystemCode(@Arg("id") id: string, @Arg("data") data: UpdateHarmonizedSystemCodeInput) {
         const harmonizedSystemCode = await HarmonizedSystemCode.findOne(id);
         if (!harmonizedSystemCode) throw new Error("Glider not found");
         Object.assign(harmonizedSystemCode, data);
@@ -26,7 +26,7 @@ export class HarmonizedSystemCodeResolver {
     }
 
     @Mutation(() => Boolean)
-    async deleteHarmonizedSystemCode(@Arg("id") id: number) {
+    async deleteHarmonizedSystemCode(@Arg("id") id: string) {
         const harmonizedSystemCode = await HarmonizedSystemCode.findOne(id);
         if (!harmonizedSystemCode) throw new Error("Glider not found!");
         await harmonizedSystemCode.remove();
