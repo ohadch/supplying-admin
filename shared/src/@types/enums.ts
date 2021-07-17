@@ -13,3 +13,11 @@ export enum OfferRoundStatus {
     Accepted = "ACCEPTED",
     Declined = "DECLINED"
 }
+
+export enum OrderStatus {
+    Ordered = "ORDERED",
+    Shipped = "SHIPPED",
+    Delivered = "DELIVERED",
+    Failed = "FAILED",
+    Canceled = "CANCELED"
+}
