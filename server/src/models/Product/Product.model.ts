@@ -22,7 +22,7 @@ export class Product extends BaseEntity {
     @Column()
     harmonizedSystemCodeId: string;
 
-
+    @Field(type => HarmonizedSystemCode)
     @ManyToOne(() => HarmonizedSystemCode)
     @JoinColumn({ name: "harmonizedSystemCodeId" })
     harmonizedSystemCode: HarmonizedSystemCode;

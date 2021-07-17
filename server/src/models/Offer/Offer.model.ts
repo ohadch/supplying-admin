@@ -31,13 +31,16 @@ export class Offer extends BaseEntity {
     @Column()
     offereeId: string;
 
+    @Field(type => [OfferRound])
     @OneToMany(() => OfferRound, offerRound => offerRound.offer)
     rounds: OfferRound[];
 
+    @Field(type => Business)
     @ManyToOne(() => Business)
     @JoinColumn({ name: "originatorId" })
     originator: Business;
 
+    @Field(type => Business)
     @ManyToOne(() => Business)
     @JoinColumn({ name: "offereeId" })
     offeree: Business;

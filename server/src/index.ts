@@ -11,7 +11,9 @@ import {BusinessResolver} from "./models/Business";
 import {OfferRoundResolver} from "./models/OfferRound";
 import {OfferResolver} from "./models/Offer";
 import {OrderResolver} from "./models/Order";
-import {OfferItemResolver} from "./models/OfferItem";
+import {CatalogItemResolver} from "./models/CatalogItem";
+import {CatalogResolver} from "./models/Catalog";
+import {DealResolver} from "./models/Deal";
 
 
 const PORT = 4002
@@ -24,13 +26,15 @@ async function main() {
 
     const schema = await buildSchema({
         resolvers: [
-            HarmonizedSystemCodeResolver,
-            ProductResolver,
             BusinessResolver,
-            OfferRoundResolver,
+            CatalogResolver,
+            CatalogItemResolver,
+            DealResolver,
+            HarmonizedSystemCodeResolver,
             OfferResolver,
+            OfferRoundResolver,
             OrderResolver,
-            OfferItemResolver
+            ProductResolver,
         ]
     })
 

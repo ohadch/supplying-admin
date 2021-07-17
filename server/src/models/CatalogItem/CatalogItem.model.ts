@@ -1,16 +1,16 @@
 import {BaseEntity, Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
 import {Field, Float, ID, Int, ObjectType} from "type-graphql";
-import {OfferRound} from "../OfferRound";
 import {Product} from "../Product";
+import {Catalog} from "../Catalog";
 
-export const OFFER_ITEM_RELATIONS = [
+export const CATALOG_ITEM_RELATIONS = [
     "product",
-    "offerRound"
+    "catalog"
 ]
 
 @Entity()
 @ObjectType()
-export class OfferItem extends BaseEntity {
+export class CatalogItem extends BaseEntity {
     @Field(
         type => ID)
     @PrimaryGeneratedColumn()
@@ -38,15 +38,17 @@ export class OfferItem extends BaseEntity {
 
     @Field(type => String)
     @Column()
-    offerRoundId: string;
+    catalogId: string;
 
-    @ManyToOne(() => OfferRound)
+    @Field(type => Product)
+    @ManyToOne(() => Product)
     @JoinColumn({ name: "productId" })
     product: Product;
 
-    @ManyToOne(() => OfferRound)
-    @JoinColumn({ name: "offerRoundId" })
-    offerRound: OfferRound;
+    @Field(type => Catalog)
+    @ManyToOne(() => Catalog)
+    @JoinColumn({ name: "catalogId" })
+    catalog: Catalog;
 
 
 }

@@ -1,8 +1,8 @@
 import {Field, Float, InputType, Int} from "type-graphql";
-import {OfferItem} from "./OfferItem.model";
+import {CatalogItem} from "./CatalogItem.model";
 
 @InputType()
-export class CreateOfferItemInput implements Partial<OfferItem>{
+export class CreateCatalogItemInput implements Partial<CatalogItem>{
     @Field(type => Float)
     pricePerUnitOffered: number;
 
@@ -13,7 +13,7 @@ export class CreateOfferItemInput implements Partial<OfferItem>{
     productId: string;
 
     @Field(type => String)
-    offerRoundId: string;
+    catalogId: string;
 
     @Field(type => Int)
     quantity: number;
@@ -23,7 +23,7 @@ export class CreateOfferItemInput implements Partial<OfferItem>{
 }
 
 @InputType()
-export class UpdateOfferItemInput implements Partial<OfferItem>{
+export class UpdateCatalogItemInput implements Partial<CatalogItem>{
     @Field(type => Float, { nullable: true })
     pricePerUnitAgreed: number;
 

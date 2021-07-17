@@ -30,6 +30,7 @@ export class Order extends BaseEntity {
     })
     status: OrderStatus;
 
+    @Field(type => OfferRound)
     @ManyToOne(() => OfferRound)
     @JoinColumn({ name: "offerRoundId" })
     offerRound: OfferRound;
