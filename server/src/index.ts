@@ -6,7 +6,7 @@ import express from "express";
 import cors from "cors";
 import { ApolloServer } from "apollo-server-express";
 import {HarmonizedSystemCodeResolver} from "./models/HarmonizedSystemCode";
-import {CatalogItemResolver} from "./models/CatalogItem";
+import {ProductResolver} from "./models/Product";
 import {BusinessResolver} from "./models/Business";
 import {OfferRoundResolver} from "./models/OfferRound";
 import {OfferResolver} from "./models/Offer";
@@ -24,7 +24,7 @@ async function main() {
     const schema = await buildSchema({
         resolvers: [
             HarmonizedSystemCodeResolver,
-            CatalogItemResolver,
+            ProductResolver,
             BusinessResolver,
             OfferRoundResolver,
             OfferResolver,

@@ -2,13 +2,13 @@ import {BaseEntity, Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColum
 import {Field, ID, Int, ObjectType} from "type-graphql";
 import {HarmonizedSystemCode} from "../HarmonizedSystemCode";
 
-export const CATALOG_ITEM_RELATIONS = [
+export const PRODUCT_RELATIONS = [
     "harmonizedSystemCode"
 ]
 
 @Entity()
 @ObjectType()
-export class CatalogItem extends BaseEntity {
+export class Product extends BaseEntity {
     @Field(
         type => ID)
     @PrimaryGeneratedColumn()

@@ -1,8 +1,8 @@
 import {Field, InputType} from "type-graphql";
-import {CatalogItem} from "./CatalogItem.model";
+import {Product} from "./Product.model";
 
 @InputType()
-export class CreateCatalogItemInput implements Partial<CatalogItem>{
+export class CreateProductInput implements Partial<Product>{
     @Field()
     name: string;
 
@@ -12,7 +12,7 @@ export class CreateCatalogItemInput implements Partial<CatalogItem>{
 }
 
 @InputType()
-export class UpdateCatalogItemInput implements Partial<CatalogItem>{
+export class UpdateProductInput implements Partial<Product>{
     @Field({ nullable: true })
     name: string;
 
