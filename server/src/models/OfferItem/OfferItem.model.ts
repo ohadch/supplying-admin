@@ -19,6 +19,10 @@ export class OfferItem extends BaseEntity {
     @Column()
     quantity: number;
 
+    @Field(type => Float, { nullable: true })
+    @Column({ nullable: true })
+    discountPercent: number;
+
     @Field(type => Float)
     @Column()
     pricePerUnitOffered: number;
