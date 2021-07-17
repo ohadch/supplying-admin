@@ -6,6 +6,7 @@ import express from "express";
 import cors from "cors";
 import { ApolloServer } from "apollo-server-express";
 import {HarmonizedSystemCodeResolver} from "./models/HarmonizedSystemCode";
+import {CatalogItemResolver} from "./models/CatalogItem";
 
 
 const PORT = 4002
@@ -18,7 +19,8 @@ async function main() {
 
     const schema = await buildSchema({
         resolvers: [
-            HarmonizedSystemCodeResolver
+            HarmonizedSystemCodeResolver,
+            CatalogItemResolver
         ]
     })
 
