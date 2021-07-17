@@ -8,6 +8,7 @@ import { ApolloServer } from "apollo-server-express";
 import {HarmonizedSystemCodeResolver} from "./models/HarmonizedSystemCode";
 import {CatalogItemResolver} from "./models/CatalogItem";
 import {BusinessResolver} from "./models/Business";
+import {OfferRoundResolver} from "./models/OfferRound";
 
 
 const PORT = 4002
@@ -22,7 +23,8 @@ async function main() {
         resolvers: [
             HarmonizedSystemCodeResolver,
             CatalogItemResolver,
-            BusinessResolver
+            BusinessResolver,
+            OfferRoundResolver
         ]
     })
 
