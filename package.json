@@ -1,0 +1,11 @@
+{
+  "name": "supplying-admin",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ohadch/supplying-admin.git",
+  "author": "Ohad <ohad@salaryo.com>",
+  "license": "MIT",
+  "scripts": {
+    "upgrade:shared": "cd shared && yarn tsc && cd ../server && yarn upgrade shared"
+  }
+}
