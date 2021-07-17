@@ -15,13 +15,17 @@ export class OfferItem extends BaseEntity {
     @PrimaryGeneratedColumn()
     id: string;
 
+    @Field(type => Int)
+    @Column()
+    quantity: number;
+
     @Field(type => Float)
     @Column()
-    priceOfferedByTheOriginator: number;
+    pricePerUnitOffered: number;
 
     @Field(type => Float, { nullable: true })
     @Column({ nullable: true })
-    priceAgreedByTheOfferee: number;
+    pricePerUnitAgreed: number;
 
     @Field(type => String)
     @Column()
