@@ -4,7 +4,8 @@ import {OfferRound} from "../OfferRound";
 import {Product} from "../Product";
 
 export const OFFER_ITEM_RELATIONS = [
-    "product"
+    "product",
+    "offerRound"
 ]
 
 @Entity()
