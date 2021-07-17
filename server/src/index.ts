@@ -1,16 +1,26 @@
 import "reflect-metadata";
 
+import { createConnection } from "typeorm";
+import {buildSchema} from "type-graphql";
 import express from "express";
-import {ApolloServer} from "apollo-server-express";
 import cors from "cors";
-import {getSchema} from "./schema";
+import { ApolloServer } from "apollo-server-express";
+import {HarmonizedSystemCodeResolver} from "./models/HarmonizedSystemCode";
 
-const PORT = 8000
+
+const PORT = 4002
 const GRAPHQL_ENDPOINT = "/graphql"
 
+
 async function main() {
+    await createConnection()
     const app = express();
-    const schema = await getSchema();
+
+    const schema = await buildSchema({
+        resolvers: [
+            HarmonizedSystemCodeResolver
+        ]
+    })
 
     const server = new ApolloServer({
         schema,
@@ -19,7 +29,7 @@ async function main() {
 
     app.use(cors())
     app.get("/", (req, res) => {
-        res.send("hello world")
+        res.send("MGC Action Manager")
     })
 
     server.applyMiddleware({app, path: GRAPHQL_ENDPOINT})

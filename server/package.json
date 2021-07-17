@@ -1,33 +1,44 @@
 {
-  "name": "supplying-admin",
+  "name": "server",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/ohadch/supplying-admin.git",
-  "author": "Ohad <ohad@salaryo.com>",
+  "license": "MIT",
   "scripts": {
-    "start": "node 'dist/index.js'",
-    "build": "tsc -p . && ncp src/schema dist/schema",
-    "start:dev": "yarn build:dev",
-    "build:dev": "nodemon 'src/index.ts' --exec 'ts-node' src/index.ts -e ts,graphql"
+    "start": "env $(cat .env) nodemon --exec ts-node src/index.ts",
+    "test": "mocha -r ts-node/register src/**/*.test.ts"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.21",
+    "@types/express": "^4.17.13",
+    "@types/mocha": "^8.2.3",
+    "@types/moment": "^2.13.0",
+    "@types/node": "^16.3.2",
+    "@types/sinon": "^10.0.2",
+    "@types/sinon-chai": "^3.2.5",
+    "@types/winston": "^2.4.4",
+    "chai": "^4.3.4",
+    "mocha": "^9.0.2",
+    "nodemon": "^2.0.12",
+    "sinon": "^11.1.1",
+    "sinon-chai": "^3.7.0",
+    "ts-node": "^10.1.0",
+    "typescript": "^4.3.5"
   },
   "dependencies": {
+    "@sendgrid/mail": "^7.4.5",
     "apollo-server-express": "^2.25.2",
     "class-validator": "^0.13.1",
     "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "graphql": "^15.5.1",
+    "moment": "^2.29.1",
+    "pg": "^8.6.0",
     "reflect-metadata": "^0.1.13",
+    "shared": "../shared/dist",
     "type-graphql": "^1.1.1",
-    "uuid": "^8.3.2"
-  },
-  "devDependencies": {
-    "@types/express": "^4.17.13",
-    "@types/node": "^16.3.0",
-    "@types/uuid": "^8.3.1",
-    "graphql-import-node": "^0.0.4",
-    "graphql-tools": "^7.0.5",
-    "nodemon": "^2.0.10",
-    "ts-node": "^10.0.0",
-    "typescript": "^4.3.5"
+    "typeorm": "^0.2.34",
+    "uuid": "^8.3.2",
+    "winston": "^3.3.3"
   }
 }
